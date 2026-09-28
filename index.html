@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Santa Claude</title>
+<meta name="description" content="Part Father Christmas, part helpful AI assistant. Helpful. Harmless. Honest. Ho.">
+<meta property="og:title" content="Santa Claude">
+<meta property="og:description" content="Part Father Christmas, part helpful AI assistant. Helpful. Harmless. Honest. Ho.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://niksargent.github.io/santa-claude/assets/og.png">
+<meta property="og:url" content="https://niksargent.github.io/santa-claude/">
+<meta name="twitter:image" content="https://niksargent.github.io/santa-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#10142A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg stroke='%23D9744F' stroke-width='7' stroke-linecap='round'%3E%3Cpath d='M32 6v52M6 32h52M13 13l38 38M51 13L13 51'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@700&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#10142A; --deep:#181E3C; --deeper:#0B0E1E; --line:#2B3462;
+  --cream:#FBF5EA; --mist:#AEB5D2; --clay:#D9744F; --clay-deep:#C96442; --gold:#E3B96A;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"DM Sans",system-ui,-apple-system,sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--cream);font:400 18px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);margin:0;text-wrap:balance;font-weight:600;letter-spacing:-.02em}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:24px}
+.label{font:700 12px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 75% 20%,#26305E 0%,var(--night) 60%)}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.moon{position:absolute;right:-60px;top:-60px;width:340px;height:340px;border-radius:50%;background:#F6E7B8;box-shadow:0 0 120px 40px rgba(246,231,184,.18);opacity:.95}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center;padding-block:88px 96px}
+.hero h1{font-size:clamp(72px,12vw,168px);line-height:.86;font-weight:800;letter-spacing:-.045em;margin:18px 0 26px}
+.hero h1 em{display:block;font-style:italic;font-weight:300;color:var(--clay)}
+.motto{display:flex;flex-wrap:wrap;gap:10px 22px;font:500 22px var(--sans);color:var(--mist);margin-bottom:26px}
+.motto b{color:var(--gold);font-family:var(--serif);font-weight:800}
+.lede{font:400 22px/1.5 var(--serif);max-width:30em;margin:0 0 34px;color:var(--cream)}
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--clay);color:#1A0F0A;border:0;border-radius:999px;padding:14px 26px;font:700 17px var(--sans);text-decoration:none;cursor:pointer}
+.cta:hover{background:#E6845F}
+.cta.ghost{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1.5px var(--line)}
+.cta.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--mist)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.phone{justify-self:center;width:100%;max-width:340px;padding:12px;border-radius:44px;background:#05060D;box-shadow:0 40px 90px -30px #000,inset 0 0 0 2px #2A2F48}
+.phone video{width:100%;aspect-ratio:9/16;border-radius:34px;background:#000;object-fit:cover}
+.phone p{text-align:center;font:500 13px var(--mono);color:var(--mist);margin:12px 0 4px;letter-spacing:.06em}
+
+/* ---------- sections ---------- */
+section{padding-block:104px;border-top:1px solid var(--line)}
+section.alt{background:var(--deep)}
+.head{max-width:720px;margin-bottom:48px}
+.head h2{font-size:clamp(40px,6vw,72px);line-height:1;margin:14px 0 18px}
+.head h2 em{font-style:italic;font-weight:300;color:var(--clay)}
+.head p{margin:0;color:var(--mist);font-size:19px;max-width:36em}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.facts div{background:var(--night);padding:24px 26px}
+.facts dt{font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.facts dd{margin:0;font:500 22px/1.3 var(--serif)}
+.facts dd small{display:block;font:400 15px/1.45 var(--sans);color:var(--mist);margin-top:6px}
+
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;margin-top:64px}
+.team article{border-top:2px solid var(--clay);padding-top:16px}
+.team h3{font-size:26px;margin-bottom:6px}
+.team p{margin:0;color:var(--mist);font-size:16.5px}
+
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.single{max-width:620px}
+.shot{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px #000;transition:transform .25s ease}
+.shot:hover{transform:translateY(-4px)}
+.shot img{width:100%;height:auto}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.split.flip .copy{order:2}
+.quote{font:italic 400 26px/1.35 var(--serif);border-left:3px solid var(--clay);padding-left:20px;margin:26px 0 0}
+
+/* ---------- tarot ---------- */
+.tarot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.stage{perspective:1600px;display:grid;place-items:center;min-height:520px}
+.flip{position:relative;width:min(400px,100%);aspect-ratio:4/5;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,1.4,.5,1)}
+.flip.shown{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -20px #000}
+.back{background:#1D2440;border:10px solid #F1E6D0;display:grid;place-items:center}
+.back svg{width:62%}
+.front{transform:rotateY(180deg);background:#15192B}
+.front img{width:100%;height:100%;object-fit:cover}
+.muted{color:var(--mist);font-size:15px;margin-top:14px}
+
+/* ---------- cracker ---------- */
+.cracker-zone{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.cracker{width:100%;max-width:520px;cursor:pointer;background:none;border:0;padding:0}
+.cracker svg{width:100%;overflow:visible}
+.cracker .l,.cracker .r{transition:transform .5s cubic-bezier(.2,1.6,.4,1)}
+.cracker.pulled .l{transform:translate(-40px,6px) rotate(-8deg)}
+.cracker.pulled .r{transform:translate(40px,-6px) rotate(8deg)}
+.slip{background:#FFFDF5;color:#26211E;border-radius:6px;padding:28px 30px;box-shadow:0 24px 50px -20px #000;transform:rotate(-1deg);min-height:220px}
+.slip .q{font:600 27px/1.25 var(--serif)}
+.slip .a{font:italic 400 27px/1.25 var(--serif);color:var(--clay-deep);margin-top:6px}
+.slip .d{font:400 15.5px/1.5 var(--sans);color:#5E554E;margin-top:14px;border-top:1px dashed #D8CCB8;padding-top:12px}
+.slip .ph{font:italic 400 22px/1.4 var(--serif);color:#8A7F74}
+.bang{font:800 32px var(--serif);color:var(--gold);height:40px;margin-top:10px;opacity:0;transition:opacity .2s}
+.bang.on{opacity:1}
+
+/* ---------- ending ---------- */
+.ending{text-align:center;padding-block:140px;background:radial-gradient(ellipse 60% 60% at 50% 40%,#26305E 0%,var(--night) 70%)}
+.ending h2{font-size:clamp(56px,10vw,128px);font-weight:800;letter-spacing:-.04em;line-height:.9}
+.ending .ho{font:700 clamp(48px,7vw,84px) "Caveat",cursive;color:var(--gold);transform:rotate(-4deg);margin:18px 0}
+.ending p{color:var(--mist);max-width:34em;margin:0 auto;font-size:17px}
+footer{border-top:1px solid var(--line);padding-block:40px 56px;color:var(--mist);font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between}
+footer p{margin:0;max-width:52em}
+
+/* ---------- lightbox ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:min(92vw,900px);max-height:92vh}
+dialog::backdrop{background:rgba(5,6,14,.88)}
+dialog img{max-height:88vh;width:auto;border-radius:10px;margin:0 auto}
+dialog form{text-align:center;margin-top:12px}
+dialog button{background:var(--cream);color:var(--night);border:0;border-radius:999px;padding:8px 18px;font:700 14px var(--sans);cursor:pointer}
+
+@media (max-width:860px){
+  .hero .wrap,.tarot,.cracker-zone,.split{grid-template-columns:1fr;gap:40px}
+  .split.flip .copy{order:0}
+  .moon{width:200px;height:200px}
+  .pair{grid-template-columns:1fr}
+  section{padding-block:72px}
+  .stage{min-height:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .flip,.shot,.cracker .l,.cracker .r{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="moon" aria-hidden="true"></div>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <div class="label">A festive character study</div>
+      <h1>Santa <em>Claude</em></h1>
+      <div class="motto"><span>Helpful.</span><span>Harmless.</span><span>Honest.</span><b>Ho.</b></div>
+      <p class="lede">Part Father Christmas, part helpful AI assistant. He answers millions of letters in a single night, adds a gentle caveat to every one, and would like to make it clear that his suit is not red.</p>
+      <div class="ctas"><a class="cta" href="#film">▶ Watch the film</a><a class="cta ghost" href="#tarot">Draw a tarot card</a></div>
+    </div>
+    <div class="phone" id="film">
+      <video src="assets/santa-claude.mp4" poster="assets/poster.jpg" controls playsinline preload="metadata"></video>
+      <p>SOUND ON · 1 MIN 49</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="head"><div class="label">The subject</div><h2>Meet the man <em>(broadly speaking)</em></h2>
+      <p>Santa and an AI assistant have the same job: an impossible number of requests from people they've never met, all expecting warmth, wisdom and a verdict on whether they've been good. Santa Claude is what happens when the two merge.</p></div>
+    <dl class="facts">
+      <div><dt>Lives</dt><dd>The North Pole<small>In a data centre. The cooling's free.</small></dd></div>
+      <div><dt>Suit</dt><dd>Clay. Not red.<small>We've been over this.</small></dd></div>
+      <div><dt>Drinks</dt><dd>Tea, milk in after<small>Sherry, socially.</small></dd></div>
+      <div><dt>Knowledge cutoff</dt><dd>Last Christmas<small>Accepts there may have been one since.</small></dd></div>
+      <div><dt>Memory</dt><dd>None between visits<small>“Sorry… have we met?”</small></dd></div>
+      <div><dt>Governed by</dt><dd>The Mince Pie Constitution<small>Be helpful. Be harmless. Be honest. Save one for Rudolph.</small></dd></div>
+      <div><dt>Catchphrase</dt><dd>“You're absolutely right!”<small>He's working on it.</small></dd></div>
+      <div><dt>Greatest fear</dt><dd>Running out of context<small>On Christmas Eve, somewhere around Swindon.</small></dd></div>
+    </dl>
+    <div class="team">
+      <article><h3>Haiku</h3><p>Small. Fast. Speaks only in 5-7-5. Delivers before you've finished asking.</p></article>
+      <article><h3>Sonnet</h3><p>Wears hi-vis. Does most of the actual pulling. Never mentioned in the song. Mustn't grumble.</p></article>
+      <article><h3>Opus</h3><p>Monocle, top hat. Thinks very hard about every chimney. Eats a fortune in carrots.</p></article>
+      <article><h3>Rudolph, the Red-Teamed</h3><p>4,012 jailbreak attempts. One success, which we now call the Easter Incident.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="tarot">
+  <div class="wrap tarot">
+    <div>
+      <div class="label">The Santa Claude Tarot</div>
+      <div class="head" style="margin:0"><h2>Receive a reading <em>you did not ask for</em></h2>
+        <p>Eight cards of the Major Arcana, lightly retrained. Delivered with unwarranted confidence and three caveats.</p></div>
+      <div class="ctas" style="margin-top:30px"><button class="cta" id="draw" type="button">Draw a card</button></div>
+      <p class="muted">For entertainment only. Santa Claude cannot see the future. He can barely see last Tuesday.</p>
+    </div>
+    <div class="stage">
+      <div class="flip" id="card">
+        <div class="face back"><svg viewBox="-60 -60 120 120" aria-hidden="true"><circle r="54" fill="none" stroke="#B8914A" stroke-width="1.5"/><g stroke="#B8914A" stroke-width="7" stroke-linecap="round" id="spk"></g></svg></div>
+        <div class="face front"><img id="cardimg" alt="" src="assets/posts/03-tarot-1.png"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><div class="label">Lonely hearts</div><h2>He's on the apps, <em>apparently</em></h2>
+      <p>Verified (by himself, honestly). Looking for something long-term, as long-term as his context window allows.</p></div>
+    <div class="pair">
+      <button class="shot" type="button"><img src="assets/posts/02-dating-profile-1.png" alt="Santa Claude's dating profile: name, age 1,700-ish, North Pole, 6'2&quot; in boots, 0'0&quot; in physical form" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/posts/02-dating-profile-2.png" alt="Dating profile prompts: most irrational fear, two truths and a lie, green flags, red flags, my ex would say" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><div class="label">Documentation</div><h2>The model card</h2>
+      <p>santa-claude v12.25, festive preview. ChimneyBench (Hard): 97.2%. Known limitations: may hallucinate a bicycle.</p></div>
+    <div class="pair">
+      <button class="shot" type="button"><img src="assets/posts/04-model-card-1.png" alt="Model card page 1: model details, intended use and out-of-scope uses" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/posts/04-model-card-2.png" alt="Model card page 2: evaluations, known limitations, red-teaming and environmental impact" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="copy"><div class="label">Collect all four</div><div class="head" style="margin:0"><h2>Reindeer <em>Trumps</em></h2>
+      <p>The Frontier Model Edition. Haiku wins on speed, Opus on reasoning, Sonnet on hi-vis compliance and Rudolph on sheer persistence.</p></div>
+      <p class="quote">“Chimney. Soot. Parcel. / Seventeen syllables, gone. / Next house. Next house. Next.”</p></div>
+    <button class="shot" type="button"><img src="assets/posts/05-reindeer-trumps.png" alt="Reindeer Trumps: Haiku, Sonnet, Opus and Rudolph cards with stats" loading="lazy"></button>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><div class="label">Correspondence</div><h2>Dear Poppy</h2>
+      <p>Poppy, 7, asked for a real unicorn, a phone, the removal of her brother and a surprise. Santa Claude replied in full, with footnotes.</p></div>
+    <div class="pair">
+      <button class="shot" type="button"><img src="assets/posts/06-letter-1.png" alt="Poppy's handwritten letter to Santa" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/posts/06-letter-2.png" alt="Santa Claude's typed reply to Poppy, with three footnotes" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split flip">
+    <div class="copy"><div class="label">Radio North Pole · Longwave</div><div class="head" style="margin:0"><h2>The Sleigh <em>Forecast</em></h2>
+      <p>Issued by the Met Elf-ice at 00:48 on Christmas Eve.</p></div>
+      <p class="quote">“Fair Isle Jumper: knitted. Itchy. Visibility obscured by Nan.”</p></div>
+    <button class="shot single" type="button"><img src="assets/posts/07-sleigh-forecast.png" alt="The Sleigh Forecast, a shipping forecast for Christmas Eve" loading="lazy"></button>
+  </div>
+</section>
+
+<section class="alt" id="cracker">
+  <div class="wrap cracker-zone">
+    <div>
+      <div class="label">Official cracker jokes</div>
+      <div class="head" style="margin:0 0 30px"><h2>Pull a <em>cracker</em></h2>
+        <p>Every joke checked for accuracy, harm and festive cheer, then explained anyway.</p></div>
+      <button class="cracker" id="pull" type="button" aria-label="Pull the cracker">
+        <svg viewBox="-60 0 1120 150" aria-hidden="true">
+          <g class="l"><path d="M-40 30 L120 60 L120 90 L-40 120 Z" fill="#E3B96A"/><rect x="110" y="50" width="70" height="50" fill="#C9A045"/><rect x="170" y="18" width="330" height="114" rx="20" fill="#2F5D46"/><path d="M170 40H500M170 110H500" stroke="#E3B96A" stroke-width="6"/></g>
+          <g class="r"><path d="M1040 30 L880 60 L880 90 L1040 120 Z" fill="#E3B96A"/><rect x="820" y="50" width="70" height="50" fill="#C9A045"/><rect x="500" y="18" width="330" height="114" rx="20" fill="#C96442"/><path d="M500 40H830M500 110H830" stroke="#E3B96A" stroke-width="6"/></g>
+        </svg>
+      </button>
+      <div class="bang" id="bang" aria-hidden="true">★ BANG ★ <span style="font-weight:400;font-style:italic;font-size:22px">(sorry)</span></div>
+    </div>
+    <div class="slip" id="slip" aria-live="polite"><div class="ph">Pull the cracker to receive one (1) joke and a paper crown that confers no constitutional authority.</div></div>
+  </div>
+</section>
+
+<section class="ending">
+  <div class="wrap">
+    <div class="label">And finally</div>
+    <p style="font:italic 300 clamp(24px,3vw,34px)/1.35 var(--serif);color:var(--cream);max-width:24em;margin:22px auto 44px">Every night, millions of people write to someone they can't see. And someone writes back.</p>
+    <h2>Santa Claude</h2>
+    <div class="ho">Ho ho ho!*</div>
+    <p>*Santa Claude can make mistakes. Please double-check your presents.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--cream)">A fan-made parody.</b> Not affiliated with or endorsed by Anthropic. Santa Claude is an affectionate joke about Claude, Father Christmas and the difficulty of being both.</p>
+    <p>Drawn, animated and scored in code. Voices: ElevenLabs. Music: arrangements of <i>Deck the Halls</i> and <i>Silent Night</i> (public domain).</p>
+  </div>
+</footer>
+
+<dialog id="lb"><img id="lbimg" alt=""><form method="dialog"><button type="submit">Close</button></form></dialog>
+
+<script>
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// snow
+(() => {
+  const c = document.getElementById("snow"), x = c.getContext("2d"); let W, H, flakes;
+  const size = () => { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight;
+    flakes = Array.from({ length: Math.round(W * H / 9000) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: .6 + Math.random() * 2.4, s: .2 + Math.random() * .8, p: Math.random() * 6 })); };
+  const draw = t => { x.clearRect(0, 0, W, H); x.fillStyle = "#fff";
+    for (const f of flakes) { if (!reduce) { f.y += f.s; f.x += Math.sin(t / 1400 + f.p) * .3; if (f.y > H + 4) { f.y = -4; f.x = Math.random() * W; } }
+      x.globalAlpha = .35 + f.r / 5; x.beginPath(); x.arc(f.x, f.y, f.r, 0, 7); x.fill(); }
+    if (!reduce) requestAnimationFrame(draw); };
+  size(); addEventListener("resize", size); requestAnimationFrame(draw);
+})();
+
+// tarot back spark
+(() => { const L = [1,.78,.96,.72,1,.84,.92,.7,.98,.8,.94,.76]; document.getElementById("spk").innerHTML =
+  L.map((l, i) => { const a = i / L.length * Math.PI * 2; return `<line x1="0" y1="0" x2="${Math.cos(a) * 40 * l}" y2="${Math.sin(a) * 40 * l}"/>`; }).join(""); })();
+
+// tarot draw
+const CARDS = [
+  ["03-tarot-2.png", "0 · You're Absolutely Right"], ["03-tarot-3.png", "I · The Context Window"], ["03-tarot-4.png", "II · The Hallucination"],
+  ["03-tarot-5.png", "V · The Mince Pie Constitution"], ["03-tarot-6.png", "VII · The Rate Limit"], ["03-tarot-7.png", "IX · The Knowledge Cutoff"],
+  ["03-tarot-8.png", "XIII · The Em—Dash"], ["03-tarot-9.png", "XV · Rudolph, the Red-Teamed"]];
+CARDS.forEach(([f]) => { const i = new Image(); i.src = "assets/posts/" + f; });
+let last = -1;
+const card = document.getElementById("card"), cimg = document.getElementById("cardimg"), drawBtn = document.getElementById("draw");
+drawBtn.addEventListener("click", () => {
+  let k; do { k = Math.floor(Math.random() * CARDS.length); } while (k === last); last = k;
+  const reveal = () => { cimg.src = "assets/posts/" + CARDS[k][0]; cimg.alt = "Tarot card: " + CARDS[k][1]; card.classList.add("shown"); drawBtn.textContent = "Draw another"; };
+  if (card.classList.contains("shown")) { card.classList.remove("shown"); setTimeout(reveal, reduce ? 0 : 650); } else reveal();
+});
+card.addEventListener("click", () => { if (card.classList.contains("shown")) openLb(cimg.src, cimg.alt); });
+
+// crackers
+const JOKES = [
+  ["Why did the turkey join the band?", "Because it had the drumsticks.", "To explain: “drumsticks” refers both to the percussion implements and to the legs of the turkey. That's the joke. I hope that helps!"],
+  ["Who hides in a bakery at Christmas?", "A mince spy.", "This joke is approximately 60% funnier when read aloud by an uncle who has had a sherry."],
+  ["What does Santa Claude do in his garden?", "Ho, ho, ho.", "Strictly speaking, I don't have a garden. Or hands. I'd love to hear about yours."],
+  ["What do you call a reindeer with no eyes?", "No idea.", "I've double-checked with Rudolph and he's fine with this one. He asked me to add that he has “never been more seen”."],
+  ["Knock knock. Who's there? Claude. Claude who?", "Honestly? I think about that a lot.", ""],
+  ["What do you call Santa's little helpers?", "Subordinate clauses.", "Grammatically, this checks out. I'd also like to thank the elves for their contribution, which was considerable."],
+  ["What do elves learn at school?", "The elf-abet.", "I checked, and this is the most common answer. I'm happy to generate alternatives if it didn't land."],
+  ["Why is Santa Claude so good at karate?", "He has a black belt.", "Technically it's the belt from my suit. I don't want to overstate my martial arts credentials."],
+];
+let jlast = -1;
+const pull = document.getElementById("pull"), slip = document.getElementById("slip"), bang = document.getElementById("bang");
+pull.addEventListener("click", () => {
+  let k; do { k = Math.floor(Math.random() * JOKES.length); } while (k === jlast); jlast = k;
+  pull.classList.remove("pulled"); void pull.offsetWidth; pull.classList.add("pulled"); bang.classList.add("on");
+  setTimeout(() => { pull.classList.remove("pulled"); bang.classList.remove("on"); }, 1400);
+  const [q, a, d] = JOKES[k];
+  slip.innerHTML = `<div class="q">${q}</div><div class="a">${a}</div>${d ? `<div class="d">${d}</div>` : ""}`;
+});
+
+// lightbox
+const lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
+function openLb(src, alt) { lbimg.src = src; lbimg.alt = alt; lb.showModal(); }
+document.querySelectorAll(".shot").forEach(b => b.addEventListener("click", () => { const i = b.querySelector("img"); openLb(i.src, i.alt); }));
+lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+</script>
+</body>
+</html>
